@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Helper to create images of different sizes and formats in commandline",
   "main": "index.js",
-  "author": "",
+  "author": "Dominic Böttger",
   "license": "MIT",
   "dependencies": {
     "async": "^1.4.2",

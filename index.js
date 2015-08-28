@@ -1,6 +1,6 @@
-//var sharp = require('sharp');
-var fs = require('fs');
+#! /usr/bin/env node
 
+var fs = require('fs');
 var program = require('commander');
 var async = require('async');
 var fileType = require('file-type');
@@ -10,9 +10,8 @@ var gm = require('gm');
 var mkdirp = require('mkdirp');
 var optimage = require('optimage');
 
-
 program
-  .version('1.0.0')
+  .version('1.0.1')
   .option('-p, --path [path]', 'Add the path to scan [path]')
   .parse(process.argv);
 

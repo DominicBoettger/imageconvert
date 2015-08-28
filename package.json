@@ -1,6 +1,6 @@
 {
   "name": "imageconvert",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Helper to create images of different sizes and formats in commandline",
   "main": "index.js",
   "author": "Dominic Böttger",

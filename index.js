@@ -13,6 +13,8 @@ var optimage = require('optimage');
 program
   .version('1.0.1')
   .option('-p, --path [path]', 'Add the path to scan [path]')
+  .option('-vert, --vertical', 'Vertical resize')
+  .option('-r, --resolution [resolution]', 'Set one resolution for resize')
   .parse(process.argv);
 
 var resolution = [
@@ -21,6 +23,10 @@ var resolution = [
   2048,
   2880
 ]
+
+if(program.resolution) {
+  resolution = [program.resolution];
+}
 
 if(program.path) {
   fs.readdir(program.path, function(err, files) {
@@ -41,8 +47,14 @@ if(program.path) {
           async.eachSeries(resolution, function(res, cb) {
             var newName = path.dirname(file) + '/__output/' + path.basename(file, path.extname(file)) + '_' + res + path.extname(file);
             console.log(newName);
+            var firstarg = res;
+            var secondarg = undefined;
+            if(program.vertical) {
+                firstarg = undefined;
+                secondarg = res;
+            }
             gm(file)
-            .scale(res)
+            .scale(firstarg, secondarg)
             .write(newName, function (err) {
               if (err) {
                 console.log(err);
